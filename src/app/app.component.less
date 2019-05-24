@@ -1,0 +1,49 @@
+@import "./../css/common.less";
+header {
+  .setHeight(60px);
+  background-color: #0071C5;
+  color: #FFF;
+  .header-logo {
+    float: left;
+    margin-left: 12px;
+    margin-top: 3px;
+    width: 100px;
+    height: 55px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .header-title {
+    float: left;
+  }
+  .header-user {
+    float: right;
+    margin-right: 12px;
+  }
+}
+
+nav {
+  .setHeight(42px);
+  background-color: #003C71;
+  .nav-item,
+  .dropdown {
+    float: left;
+  }
+  .nav-item,
+  .nav-item-btn {
+    color: #FFF;
+    background-color: transparent;
+    text-decoration: none;
+    .setHeight(30px);
+    margin: 6px;
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 0.25rem;
+    &:hover {
+      color: #333;
+      background-color: #E7E7E7;
+    }
+  }
+  .nav-item-btn {
+    display: inline-block;
+  }
+}

@@ -1,0 +1,26 @@
+<header>
+  <div class="header-logo"></div>
+  <div class="header-title">{{title}}</div>
+  <div class="header-user">{{userName}}</div>
+</header>
+
+<nav>
+  <!-- <a href="javascript:;">click-me</a> -->
+  <a class="nav-item" routerLink="/first page">first</a>
+  <a class="nav-item" routerLink="/second page">second</a>
+  <!-- <div class="dropdown">
+    <a class="nav-item-btn" href="javascript:;" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Dropdown
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" routerLink="/home">Action</a>
+      <a class="dropdown-item" routerLink="/home">Another action</a>
+      <a class="dropdown-item" routerLink="/home">Something else here</a>
+    </div>
+  </div> -->
+</nav>
+
+<router-outlet></router-outlet>
+
+<app-loading></app-loading>
+<app-alert-box></app-alert-box>
