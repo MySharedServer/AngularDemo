@@ -1,0 +1,44 @@
+<div class="show-table-frame">
+  <table class="show-table">
+    <thead>
+      <tr>
+        <th *ngFor="let th of tableHeads" width="{{th.width}}">{{th.name}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let trItem of curPageData" (click)="trClick(trItem)">
+        <ng-container *ngFor="let th of tableHeads">
+        <td *ngIf="item !=='index'" data-toggle="tooltip" data-placement="top" title='{{trItem[th.key] || ""}}'>
+          {{trItem[th.key] || ''}}</td>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+  <div class="page-frame">
+    <div class="display-page">
+      <span>Max number per page</span>
+      <span>
+        <select #selectCurPage class="selectDisplayPage" [(ngModel)]="displayRowSize"
+          (change)="displayPageChange(selectCurPage.value)">
+          <option *ngFor="let displayPage of displayPageArr" value={{displayPage}}>{{displayPage}}</option>
+        </select>
+      </span>
+    </div>
+    <button *ngIf="exportEventEmit.observers.length > 0" class="export-btn btn btn-light" (click)="exportClick()">export</button>
+    <div class="pagination">
+      <span class="pagination-item-box">{{curPage}} / {{getPageCount()}}</span>
+      <span class="blue-pointer pagination-item-box" (click)="pageTurner('firstPage')">first</span>
+      <span class="blue-pointer pagination-item-box" (click)="pageTurner('prePage')">&laquo;</span>
+      <span *ngFor="let page of displayPageList" class="pagination-item-box"
+        [ngClass]="{'blue-pointer': !isCurPage(page)}" (click)="selectPage(page)">{{ page }}</span>
+      <span class="blue-pointer pagination-item-box" (click)="pageTurner('nextPage')">&raquo;</span>
+      <span class="blue-pointer pagination-item-box" (click)="pageTurner('lastPage')">last</span>
+      <span>
+        <input type="number" min="1" max="{{getPageCount()}}" class="page-input-box" [(ngModel)]="inputPage" />
+      </span>
+      <span class="pagination-item-box">
+        <button type="submit" class="btn btn-link blue-pointer" (click)="selectPage(inputPage)">Go</button>
+      </span>
+    </div>
+  </div>
+</div>
